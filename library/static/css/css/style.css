@@ -1,0 +1,29 @@
+/*sidebar*/
+a:hover{text-decoration: none}
+.side_bar{position: fixed;width: 275px;;height: 100vh;z-index: 99;
+          box-shadow: 0 16px 38px -12px rgba(0, 0, 0, 0.56), 0 4px 25px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
+transform: translateX(-100%)}
+.side_bar:before{position: absolute;content: '';background: rgba(255,255,255,0.9);height: 100vh;
+                 left: 0;right: 0}
+.side_bar ul{padding: 0;margin-bottom: 0;position: relative}
+.side_bar ul li{display: grid}
+.side_bar ul li a{margin: 10px 15px 0;border-radius: 3px;color: #3C4858;padding-left: 10px;
+                  padding-right: 10px;text-transform: capitalize;font-size: 14px;padding: 12px 15px;
+                  transition: all 150ms ease-in;}
+.right_section {width: 70%;position: relative;margin-left: 25%;float: left;top: 10px;}
+.side_bar ul li a:hover{background: rgba(200, 200, 200, 0.2);transition: all 150ms ease-in;}
+.side_bar ul li a.active{background:#2196F3;
+                         transition: all 150ms ease-in;color: #fff;
+                         box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(156, 39, 176, 0.4);}
+.tab-content .tab-pane{-webkit-animation: fadeEffect 1s;animation: fadeEffect 1s;}
+.add_btn{position: absolute;bottom: -15px;right: -15px;z-index: 1;height: 50px;
+         width: 50px;background: #f24773;border-radius: 50%;
+         box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(156, 39, 176, 0.4);}
+.add_btn svg{width: 25px;height: 25px;fill: #fff;position: absolute;left: 0;right: 0;
+             top: 0;bottom: 0;margin: auto;}
+.menu_icon{display: block;position: absolute;left: 35px;top: 30px;cursor: pointer;width: 30px;
+    height: 30px;}
+.menu_icon svg{fill:#666;height: 30px;
+    width: 30px;}
+.overlay{position: absolute;left: 0;right: 0;background: rgba(0,0,0,0.5);top: 0;bottom: 0;z-index: 1;
+         display: none}

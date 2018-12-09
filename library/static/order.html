@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" >
+{% load static %}
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/css/style.css">
+  <title>A02 Frontend</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+  <link rel="stylesheet" href="{% static "css/style.css" %}">
+  <link rel="stylesheet" href="{% static "css/cuppa-datepicker-styles.css" %}">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+
+<body>
+
+     <section id="order-form">
+              <h2>Order</h2>
+              <form action = "/library/order/" method = "post" >
+                  {% csrf_token %}
+                <label><span>UserID</span><input id="three" name="UserID" type="text" placeholder="UserID"/></label>
+                <label><span>BookName</span><input id="one" name="BookName" type="text" placeholder="BookName"/></label>
+                <label><span>AuthorName</span><input id="two" name="AuthorName" type="text" placeholder="AuthorName"/></label>
+                <div class="row">
+              <div class="col-5"></div>
+              <div class="col-2">
+              <!--<input name="submit" type="submit" value="Send"/>-->
+              <button id='submit' onclick='checkAnswer()'>Send</button>
+            </div>
+            <div class="col-5">
+              <input name="reset" type="reset" value="Reset"/>
+            </div>
+          </div>
+              </form>
+            </section>
+            <script>
+            	function checkAnswer()
+            	{
+            		var isANumber1=isNaN(document.getElementById('one').value);
+            		var isANumber2=isNaN(document.getElementById('two').value);
+            		if( !(isANumber1) || !(isANumber2) || document.getElementById('one').value=="" || document.getElementById('two').value=="" || document.getElementById('three').value=="")
+            		{
+            				document.getElementById('submit').innerHTML = "Error";
+
+            		}
+            		else
+            		{
+            				document.getElementById('submit').innerHTML = "Thankyou";
+            		}
+            	}
+            </script>
+              <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+                <script  src="{% static "js/order.js" %}"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en" >
+{% load static %}
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/css/style.css">
+  <title>A02 Frontend</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+  <link rel="stylesheet" href="{% static "css/style.css" %}">
+  <link rel="stylesheet" href="{% static "css/cuppa-datepicker-styles.css" %}">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+
+<body>
+  <div style="position: fixed; width: 100vw; z-index: 1; margin-top: -100px">
+  <nav style="width: 100vw;" class="navbar navbar-expand-sm navbar-dark bg-dark p-0">
+    <div class="container row">
+
+      <a href="index.html" class="navbar-brand"> <img src="https://upload.wikimedia.org/wikipedia/en/thumb/4/49/IIIT_Sri_City_Logo.png/220px-IIIT_Sri_City_Logo.png" style="width: 32px; height: 32px; margin-right: 8px; margin-top: -1px">ProjectA02</a>
+      <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" style="margin-right: -350px;margin-left: 1031px" id="navbarCollapse">
+
+        <ul class="navbar-nav">
+          <li class="nav-item dropdown mr-3">
+            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
+              <i class="fas fa-user"></i> Welcome Brad
+            </a>
+            <div class="dropdown-menu">
+              <a href="profile.html" class="dropdown-item">
+                <i class="fas fa-user-circle"></i> Profile
+              </a>
+              <a href="settings.html" class="dropdown-item">
+                <i class="fas fa-cog"></i> Settings
+              </a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a href="login.html" class="nav-link">
+              <i class="fas fa-user-times"></i> Logout
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+     </nav>
+<header style="width:100vw;text-align:center;font-size: 25px; display: flex; align-items: center; justify-content: center;" id="main-header" class="row py-3 bg-primary text-white">
+<center><h1>Library Portal</h1></center>
+ <!-- <div style="width: 350px;height: 1 px;margin-top: -10px;margin-bottom: 0px;margin-right: 20px">
+  <button id="myButton" class="float-left submit-button" >Back to Original Site</button>
+</div>
+<script type="text/javascript">
+    document.getElementById("myButton").onclick = function () {
+        location.href = "http://www.iiits.ac.in/";
+    };
+</script> -->
+</header>
+ </div>
+
+
+<!-- <br><br><br> -->
+
+<input type="checkbox" style="position: fixed; z-index: 2;" id="hamburger"/>
+<label class="menuicon" style="position: fixed; z-index: 2;" for="hamburger">
+  <span></span>
+</label>
+
+<div style="position: fixed; z-index: 1 ;background-color: gray" class="menu" >
+
+
+  <ul class="nav nav-pills" role="tablist">
+
+   <li class="nav-item active">
+      <a class="nav-link btn success" data-toggle="pill" id="HOME" href="#home"><font size="5" style="font-style:courier";><pre>        Home       </pre></font></a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link btn success" class="nav-link btn success"  data-toggle="pill" href="#SearchBook"><font size="5" style="font-style:courier";><pre>SearchBook</pre></font></a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link btn success" data-toggle="pill" href="#Articles"><font size="5" style="font-style:courier";><pre>    Articles    </pre></font></a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link btn success" data-toggle="pill" href="#Add"><font size="5" style="font-style:courier";><pre> Add/Update </pre></font></a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link btn success" data-toggle="pill" href="#IssueBook"><font size="5" style="font-style:courier";><pre>  IssueBook  </pre></font></a>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link btn success" data-toggle="pill" id="orderbook" href="#OrderBook"><font size="5" style="font-style:courier";><pre> OrderBook </pre></font></a>
+    </li>
+
+
+    <li class="nav-item">
+      <a class="nav-link btn success" data-toggle="pill" href="#DonateBook"><font size="5" style="font-style:courier";><pre>DonateBook</pre></font></a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link btn success" data-toggle="pill" href="#FeedBack"><font size="5" style="font-style:courier";><pre>   FeedBack   </pre></font></a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link btn success" data-toggle="pill" href="#Fine"><font size="5" style="font-style:courier";><pre>         Fine        </pre></font></a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link btn success" data-toggle="pill" href="#ReturnBook"><font size="5" style="font-style:courier";><pre>ReturnBook</pre></font></a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link btn success" data-toggle="pill" href="#NewsFeed"><font size="5" style="font-style:courier";><pre>  NewsFeed   </pre></font></a>
+    </li>
+      <!--<a href="/library/order/"> order</a>-->
+  </ul>
+</div>
+
+
+
+
+<div class="row" style="margin-top: 100px;">
+  <div class="col-2"></div>
+  <div class="col-10 tab-content">
+
+    <div id="home" class="container tab-pane fade in active">
+      <br>
+<center><h2>Indian Institue Of Information Technology SriCity</h2></center>
+
+
+<center><div class="slideshow-container" style="width:100%;height:30%">
+
+<div class="mySlides fade">
+  <div class="numbertext">1 / 3</div>
+  <img src="{% static "img/pro1.jpg" %}" style="width:1000px;height:300px;">
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">2 / 3</div>
+  <img src="{% static "img/pro2.jpg" %}" style="width:1000px;height:300px;">
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">3 / 3</div>
+  <img src="{% static "img/pro3.jpg" %}" style="width:1000px;height:300px;">
+  <!-- <div class="text">Caption Three</div> -->
+</div>
+
+</div></center>
+<br>
+
+<div style="text-align:center">
+  <span class="dot"></span>
+  <span class="dot"></span>
+  <span class="dot"></span>
+</div>
+
+<script>
+var slideIndex = 0;
+showSlides();
+
+function showSlides() {
+    var i;
+    var slides = document.getElementsByClassName("mySlides");
+    var dots = document.getElementsByClassName("dot");
+    for (i = 0; i < slides.length; i++) {
+       slides[i].style.display = "none";
+    }
+    slideIndex++;
+    if (slideIndex > slides.length) {slideIndex = 1}
+    for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+    }
+    slides[slideIndex-1].style.display = "block";
+    dots[slideIndex-1].className += " active";
+    setTimeout(showSlides, 1500); // Change image every 2 seconds
+}
+</script>
+
+          <br><br><br>
+          <center><h2>ANNOUNCEMENTS</h2><div class="Announce">
+          <marquee behaviour = "scroll" scrollamount="2" direction = "up" width="650px" height = "150px" onmouseover="this.stop();" onmouseout="this.start();">
+          <p>There is a guest lecture by DR.Abhay Kumar on "Machine Learning."
+            <img src="https://csab.nic.in/CMS/Images/newicon.gif"></p>
+            <br>
+          <p>There is a guest lecture by DR.Srivatsava on "Power Optiminsation in state of art system on chip."<img src="https://csab.nic.in/CMS/Images/newicon.gif"></p><br>
+          <p>There is a presentation of 5 Groups in ASE class.</p><br>
+          </marquee>
+          </div>
+          </center>
+
+        <div class="footer">
+  <h4 style="text-align: right">CONNECT WITH IIITS
+    <a href="https://www.facebook.com/IIIT.SriCity/" class="fa fa-facebook"></a>
+<a href="https://twitter.com/IIITSC" class="fa fa-twitter"></a>
+<a href="mailto:contact@iiits.in" class="fa fa-google"></a>
+<a href="https://www.linkedin.com/in/tiru-mala-4030377a/" class="fa fa-linkedin"></a>
+<a href="https://www.youtube.com/watch?v=eOWahGOIP7g" class="fa fa-youtube"></a>
+<a href="https://www.instagram.com/iiitsricity/" class="fa fa-instagram"></a>
+<img src="http://www.iiits.ac.in/iiits-content/uploads/2018/04/mhrd.jpg" style="width:24px;height:15px;text-align:right;">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  </h4>
+
+</div>
+   </div>
+
+    <div id="SearchBook" class="container tab-pane fade"><br>
+            <h1 style="font-style: italic;font-size: 20px">Please select a filter-type to search a book</h1>
+              <br><br>
+              <div class="row">
+                    <div class="col-4">
+                    <form id="f" action="/action_page.php">
+                        {% csrf_token %}
+                      <input type="radio" name="SearchBook" value="SearchByBookName" style="width: 60px"> Search By Book Name<br>
+                      <input type="radio" name="SearchBook" value="SearchByAuthorName" style="width: 60px"> Search By Author Name<br>
+                    </form>
+                  </div>
+                  <div class="col-8">
+                    <div class="row">
+                      <div class="col-3">
+                        <h3>You have chosen to:</h3>
+                       </div>
+                       <div class="col-5">
+                        <input readonly="true" type="text" id="t" />
+                        </div>
+                  </div>
+                  </div>
+              </div>
+                <script>
+                    f = document.querySelector('#f')
+                    f.addEventListener('change', e => {
+                      document.querySelector('#t').value = e.target.value
+                    })
+                </script>
+                <div>
+                    <form class="row" accept-charset="utf-8">
+                      <div class="col-8">  <label><span>SearchName:</span><input name="Name" type="text" placeholder="search"/></label>
+
+                      </div>
+                      <div class="col-17">
+                      <input name="submit" type="submit" value="Search"/>
+
+                    </div>
+                      </form>
+                      </div>
+        </div>
+
+    <div id="Articles" class="container tab-pane fade"><br>
+      <h3>Articles</h3>
+      <p></p>
+    </div>
+
+     <div id="Add" class="container tab-pane fade"><br>
+      <h3>Add/Update</h3>
+              <section id="Add-form">
+              <h2>add</h2>
+              <form id="add" name="add" accept-charset="utf-8">
+                  {% csrf_token %}
+                <label><span>BookName</span><input name="bookname" type="text" placeholder="BookName"/></label>
+              <label><span>AuthorName</span><input name="authorname" type="text" placeholder="AuthorName"/></label>
+              <label><span>Edition</span><input name="edition" type="text" placeholder="Edition"/></label>
+              <label><span>Publication</span><input name="publication" type="text" placeholder="Publication"/></label>
+              <label><span>ISBN</span><input name="isbn" type="text" placeholder="ISBN"/></label>
+              <label><span>Price</span><input name="price" type="text" placeholder="Price"/></label>
+                <div class="row">
+              <div class="col-5"></div>
+              <div class="col-2">
+              <input name="submit" type="submit" value="Send"/>
+            </div>
+            <div class="col-5">
+              <input name="reset" type="reset" value="Reset"/>
+            </div>
+          </div>
+              </form>
+            </section>
+              <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+                <script src="{% static "js/add.js" %}"></script>
+
+    </div>
+
+    <div id="IssueBook" class="container tab-pane fade"><br>
+       <section id="issue-form">
+        <h2>issue</h2>
+        <form action = "/library/issue/" method = "post">
+            {% csrf_token %}
+          <label><span>BookID</span><input name="BookID" type="text" placeholder="BookID" size="10px"/></label>
+          <label><span>UserID</span><input name="UserID" type="text" placeholder="UserID"/></label>
+          <label for="issuedate"><span>IssueDate</span><input name="IssueDate" id="issuedate" type="text" placeholder="YYYY-MM-DD"/></label>
+
+          <!--<div class="row " style="margin-left: 120px"><label><span>IssueDate</span></label><div id="demo1" style="margin-bottom:  10px" align="top"></div>-->
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.12.0/moment.min.js"></script>-->
+    <!--<script src="{% static "js/cuppa-calendar.js" %}"></script>-->
+    <!--<script>-->
+    <!--var cal1  = new WinkelCalendar({-->
+        <!--container: 'demo1',-->
+        <!--bigBanner: true,-->
+        <!--//defaultDate: '2018-1-1',-->
+        <!--format : "DD/MM/YYYY",-->
+        <!--onSelect : onDateChange-->
+
+      <!--});-->
+    <!--window.onload = function () {-->
+
+    <!--}-->
+    <!--function onDateChange(date){-->
+      <!--//document.getElementById('container2').innerHTML = date;-->
+    <!--}-->
+    <!--</script>-->
+    <!--<script>-->
+      <!--(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){-->
+      <!--(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),-->
+      <!--m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)-->
+      <!--})(window,document,'script','//www.google-analytics.com/analytics.js','ga');-->
+
+      <!--ga('create', 'UA-46156385-1', 'cssscript.com');-->
+      <!--ga('send', 'pageview');-->
+
+    <!--</script>-->
+
+    <!--<script>'undefined'=== typeof _trfq || (window._trfq = []);'undefined'=== typeof _trfd && (window._trfd=[]),_trfd.push({'tccl.baseHost':'secureserver.net'}),_trfd.push({'ap':'cpsh'},{'server':'p3plcpnl0805'}) // Monitoring performance to make your website faster. If you want to opt-out, please contact web hosting support.</script><script src='https://img1.wsimg.com/tcc/tcc_l.combined.1.0.6.min.js'></script><br>-->
+  <!--</div>-->
+          <div class="row">
+                    <div class="col-5"></div>
+                    <div class="col-2">
+                    <input name="submit" type="submit" value="Send"/>
+                  </div>
+                  <div class="col-5">
+                    <input name="reset" type="reset" value="Reset"/>
+                  </div></div>
+
+        </form>
+      </section>
+        <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+
+
+
+          <script  src="{% static "js/issue.js" %}"></script>
+    </div>
+
+
+    <div id="OrderBook" class="container tab-pane fade"><br>
+
+     <!--<a href="/library/order/"> order</a>-->
+
+    </div>
+
+
+
+    <div id="DonateBook" class="container tab-pane fade"><br>
+       <section id="donor-form">
+        <h2>Donor</h2>
+        <form action = "/library/donate/" method = "post" >
+            {% csrf_token %}
+          <label><span>DonatorID</span><input name="DonatorID" type="text" placeholder="DonatorID" size="10px"/></label>
+          <label><span>DonorName</span><input name="DonorName" type="text" placeholder="DonorName"/></label>
+          <label><span>BookName</span><input name="BookName" type="text" placeholder="BookName"/></label>
+          <div class="row">
+              <div class="col-5"></div>
+              <div class="col-2">
+              <input name="submit" type="submit" value="Send"/>
+            </div>
+            <div class="col-5">
+              <input name="reset" type="reset" value="Reset"/>
+            </div></div>
+        </form>
+      </section>
+        <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+
+    <script  src="{% static "js/donor.js" %}"></script>
+    </div>
+
+
+    <div id="FeedBack" class="container tab-pane fade"><br>
+             <section id="contact-form">
+            <h2>Contact</h2>
+            <form id="contact" name="contact" accept-charset="utf-8">
+                {% csrf_token %}
+              <label><span>Name</span><input name="name" type="text" placeholder="Name"/></label>
+              <label><span>Email</span><input name="email" type="email" placeholder="Email"/></label>
+              <label><span>Message</span><textarea name="message" placeholder="Message"></textarea></label>
+              <div class="row">
+              <div class="col-5"></div>
+              <div class="col-2">
+              <input name="submit" type="submit" value="Send"/>
+            </div>
+            <div class="col-5">
+              <input name="reset" type="reset" value="Reset"/>
+            </div></div>
+            </form>
+          </section>
+            <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+              <script  src="{% static "js/feedback.js" %}"></script>
+    </div>
+
+    <div id="Fine" class="container tab-pane fade"><br>
+      <h3>Fine</h3>
+      <p></p>
+    </div>
+
+
+ <div id="ReturnBook" class="container tab-pane fade"><br>
+      <section id="return-form">
+  <h2>return</h2>
+   <form action = "/library/return/" method = "post" >
+       {% csrf_token %}
+    <label><span>BookID</span><input name="BookID" type="text" placeholder="BookID" size="10px"/></label>
+    <label><span>UserID</span><input name="UserID" type="text" placeholder="UserID"/></label>
+    <label for="returndate"><span>ReturnDate</span><input name="ReturnDate" id="returndate" type="text" placeholder="YYYY-MM-DD"/></label>
+    <!--<div class="row " style="margin-left: 120px"><label><span>ReturnDate</span></label><div name = "ReturnDate" id="demo" style="margin-bottom:  10px" align="top"></div>-->
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.12.0/moment.min.js"></script>-->
+    <!--<script src="{% static "js/cuppa-calendar.js" %}"></script>-->
+    <!--<script>-->
+    <!--var cal  = new WinkelCalendar({-->
+        <!--container: 'demo',-->
+        <!--bigBanner: true,-->
+        <!--//defaultDate: '2018-01-01',-->
+        <!--format : "YYYY-MM-DD",-->
+        <!--onSelect : onDateChange-->
+
+      <!--});-->
+    <!--window.onload = function () {-->
+
+    <!--}-->
+    <!--function onDateChange(date){-->
+      <!--document.getElementById('container2').innerHTML = date;-->
+    <!--}-->
+    <!--</script>-->
+    <!--<script>-->
+      <!--(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){-->
+      <!--(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),-->
+      <!--m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)-->
+      <!--})(window,document,'script','//www.google-analytics.com/analytics.js','ga');-->
+
+      <!--ga('create', 'UA-46156385-1', 'cssscript.com');-->
+      <!--ga('send', 'pageview');-->
+
+    <!--</script>-->
+
+    <!--<script>'undefined'=== typeof _trfq || (window._trfq = []);'undefined'=== typeof _trfd && (window._trfd=[]),_trfd.push({'tccl.baseHost':'secureserver.net'}),_trfd.push({'ap':'cpsh'},{'server':'p3plcpnl0805'}) // Monitoring performance to make your website faster. If you want to opt-out, please contact web hosting support.</script><script src='https://img1.wsimg.com/tcc/tcc_l.combined.1.0.6.min.js'></script><br>-->
+  <!--</div>-->
+        <div class="row">
+                  <div class="col-5"></div>
+                  <div class="col-2">
+                  <input name="submit" type="submit" value="Send"/>
+                </div>
+                <div class="col-5">
+                  <input name="reset" type="reset" value="Reset"/>
+                </div></div>
+
+      </form>
+    </section>
+      <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+      <script  src="{% static "js/return.js" %}"></script>
+    </div>
+
+    <div id="NewsFeed" class="container tab-pane fade"><br>
+      <h3>Newsfeed</h3>
+      <p></p>
+    </div>
+  </div>
+</div>
+  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script>
+/* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
+var dropdown = document.getElementsByClassName("dropdown-btn");
+var i;
+
+for (i = 0; i < dropdown.length; i++) {
+  dropdown[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var dropdownContent = this.nextElementSibling;
+    if (dropdownContent.style.display === "block") {
+      dropdownContent.style.display = "none";
+    } else {
+      dropdownContent.style.display = "block";
+    }
+  });
+}
+</script>
+
+<script>
+    $('a#HOME').trigger('click')
+      $("#home").load("index.html");
+    ;
+    $('a#orderbook').click(function() {
+      $("#OrderBook").load("order.html");
+
+    });
+ </script>
+
+
+
+</body>
+</html>
